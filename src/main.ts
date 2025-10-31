@@ -1,7 +1,30 @@
 // CMPM 121 Smelly Code Activity
 
-// This variable keeps track of the counter
-let count = 0;
+class Counter {
+  private count: number;
+
+  constructor(initialValue = 0) {
+    this.count = initialValue;
+  }
+
+  increment() {
+    this.count++;
+  }
+
+  decrement() {
+    this.count--;
+  }
+
+  reset() {
+    this.count = 0;
+  }
+
+  getCount(): number {
+    return this.count;
+  }
+}
+
+const counter = new Counter();
 
 // These constants are for button IDs and heading text
 const incId = "increment",
@@ -37,32 +60,34 @@ function setup() {
   function updateDisplay() {
     // Update the counter display
     if (counterDisplay) {
-      counterDisplay.innerHTML = `${count}`;
+      counterDisplay.innerHTML = `${counter.getCount()}`;
     }
     // Update the document title
-    document.title = "Clicked " + count;
+    document.title = "Clicked " + counter.getCount();
     // Change the background color based on even/odd count
-    document.body.style.backgroundColor = count % 2 ? "pink" : "lightblue";
+    document.body.style.backgroundColor = counter.getCount() % 2
+      ? "pink"
+      : "lightblue";
   }
 
   // Add click event to the increment button
   incrementButton.addEventListener("click", () => {
     // Increase the counter by 1
-    count++;
+    counter.increment();
     updateDisplay();
   });
 
   // Add click event to the decrement button
   decrementButton.addEventListener("click", () => {
     // Decrease the counter by 1
-    count--;
+    counter.decrement();
     updateDisplay();
   });
 
   // Add click event to the reset button
   resetButton.addEventListener("click", () => {
     // Reset the counter to 0
-    count = 0;
+    counter.reset();
     updateDisplay();
   });
 }
