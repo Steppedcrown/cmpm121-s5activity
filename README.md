@@ -8,3 +8,4 @@ Inconsistent Code - stored all html ids as variables instead of doing half varia
 Remove Dead Code - removed unnecessary start function and called setup directly instead
 Duplicate Code - extract function (updateDisplay for event listeners)
 Global Variable - encapsulate variable (extracted counter into its own class)
+Unnecessary Comments - many comments were about self-explanatory parts of code
