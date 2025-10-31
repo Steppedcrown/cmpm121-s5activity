@@ -34,40 +34,36 @@ function setup() {
     return;
   }
 
-  // Add click event to the increment button
-  incrementButton.addEventListener("click", () => {
-    // Increase the counter by 1
-    count++;
+  function updateDisplay() {
     // Update the counter display
-    counterDisplay.innerHTML = `${count}`;
+    if (counterDisplay) {
+      counterDisplay.innerHTML = `${count}`;
+    }
     // Update the document title
     document.title = "Clicked " + count;
     // Change the background color based on even/odd count
     document.body.style.backgroundColor = count % 2 ? "pink" : "lightblue";
+  }
+
+  // Add click event to the increment button
+  incrementButton.addEventListener("click", () => {
+    // Increase the counter by 1
+    count++;
+    updateDisplay();
   });
 
   // Add click event to the decrement button
   decrementButton.addEventListener("click", () => {
     // Decrease the counter by 1
     count--;
-    // Update the counter display
-    counterDisplay.innerHTML = `${count}`;
-    // Update the document title
-    document.title = "Clicked " + count;
-    // Change the background color based on even/odd count
-    document.body.style.backgroundColor = count % 2 ? "pink" : "lightblue";
+    updateDisplay();
   });
 
   // Add click event to the reset button
   resetButton.addEventListener("click", () => {
     // Reset the counter to 0
     count = 0;
-    // Update the counter display
-    counterDisplay.innerHTML = `${count}`;
-    // Update the document title
-    document.title = "Clicked " + count;
-    // Change the background color based on even/odd count
-    document.body.style.backgroundColor = count % 2 ? "pink" : "lightblue";
+    updateDisplay();
   });
 }
 
