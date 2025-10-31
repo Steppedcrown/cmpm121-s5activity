@@ -5,3 +5,4 @@ This activity is designed to help you practice identifying code smells and apply
 Code Smells:
 Mysterious Name - rename variable (137)
 Inconsistent Code - stored all html ids as variables instead of doing half variables half hard-coded
+Remove Dead Code - removed unnecessary start function and called setup directly instead
